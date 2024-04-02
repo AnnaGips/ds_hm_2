@@ -94,9 +94,10 @@ JOIN status ON tasks.status_id = status.id
 WHERE status.name = 'в роботі';
 
 -- Отримати користувачів та кількість їхніх завдань
-SELECT users.fullname, COUNT(tasks.id) AS task_count
+SELECT users.id, users.fullname, COUNT(tasks.id) AS task_count
 FROM users
 LEFT JOIN tasks ON users.id = tasks.user_id
-GROUP BY users.fullname;
+GROUP BY users.id, users.fullname;
+
 
 
